@@ -43,23 +43,34 @@ THEN
 
 **HOW: Billing calculation is done:**
 
-1. Billing Cycle:
+HOW: Billing calculation is done:
+
+1. Products for customer:
+    
+    
+    | Tier | Product  |
+    | --- | --- |
+    | 1 | Basic |
+    | 2 | Premium |
+    | 3 | Silver |
+    | 4 | Gold |
+
+2. Pricing for the customer:
+    1. Pricing is tiered based on user membership type and usage demands
+        
+        
+        | Tier | Product | Usage Range | Fixed Base Charge | Charge per unit above the usage limit |
+        | --- | --- | --- | --- | --- |
+        | 1 | Basic | 0-100 | $50 | $2.25 |
+        | 2 | Premium | 100-400 | $180 | $1.80 |
+        | 3 | Silver | 400-900 | $350 | $1.50 |
+        | 4 | Gold | 900-1500 | $600 | $1.25 |
+3. Billing Cycle:
     1. The first x days trial period is not counted in the billing cycle
     2. The billing cycle starts from the day of card setup
     3. For the first month the billing cycle ends on the last day of the month, doing a pro-rated charge for the used days in the first month. 
     4. From the next month onwards the billing happens at the end of each month
-
-1. Pricing for the customer:
-    1. Pricing is tiered based on user membership type and usage demands
-        
-        
-        | Tier | Usage Range | Fixed Base Charge | Charge per unit above the usage limit |
-        | --- | --- | --- | --- |
-        | 1 | 0-100 | $50 | $2.25 |
-        | 2 | 100-400 | $180 | $1.80 |
-        | 3 | 400-900 | $350 | $1.50 |
-        | 4 | 900-1500 | $600 | $1.25 |
-2. Monthly Allowable Usage calculation: 
+4. Monthly Allowable Usage calculation: 
     1. The allowed usage for the first month is pro-rated for the number of days in the given calendar month for the first month:
     
     first month allowed usage = (total allowed usage / number of day in calendar month) * diff ( end of month - current day )
